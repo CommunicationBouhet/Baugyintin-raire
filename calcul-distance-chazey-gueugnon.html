@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcul de distance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calcul de distance</h1>
+  <p>Adresse d'arrivée :</p>
+  <input type="text" id="destination" placeholder="ex. 10 rue Victor Hugo, Paris">
+  <button onclick="calculer()">Afficher l’itinéraire</button>
+
+  <script>
+    function calculer() {
+      const departFixe = "2 impasse des Royes, 71130 Gueugnon";
+      const destination = document.getElementById("destination").value;
+      if (!destination) {
+        alert("Veuillez entrer une adresse d’arrivée.");
+        return;
+      }
+      const url = "https://www.google.com/maps/dir/" +
+                  encodeURIComponent(departFixe) + "/" +
+                  encodeURIComponent(destination);
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
